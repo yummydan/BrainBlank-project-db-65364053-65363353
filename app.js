@@ -5,7 +5,6 @@ const path = require('path'); // เพิ่มเพื่อใช้ path mo
 const app = express();
 const bodyParser = require('body-parser');
 require('dotenv').config()
-
 // กำหนดพอร์ตที่ server จะทำงาน
 const PORT = 3000;
 
@@ -14,6 +13,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // เชื่อมต่อกับฐานข้อมูล MySQL users_db
@@ -55,7 +55,6 @@ db.connect(err => {
         console.log('Connected to TiDB Cloud database');
     }
 });
-
 
 // Register route
 app.post('/register', (req, res) => {
@@ -204,10 +203,10 @@ app.get('/contacts-analysis', (req, res) => {
         query = `
             SELECT CONCAT(month, '-', day) AS contact_date, COUNT(*) AS contact_count
             FROM \`bank_cleaned\`
-            GROUP BY contact_date
+            GROUP BY month, day
             ORDER BY FIELD(month, 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'), day ASC;
         `;
-    } else if (chartType === 'contacts_per_month') {
+    }else if (chartType === 'contacts_per_month') {
         query = `
             SELECT month AS contact_month, COUNT(*) AS contact_count
             FROM \`bank_cleaned\`
@@ -217,9 +216,9 @@ app.get('/contacts-analysis', (req, res) => {
     } else if (chartType === 'success_rate_per_month') {
         query = `
             SELECT month AS contact_month, 
-                   SUM(CASE WHEN y = 'yes' THEN 1 ELSE 0 END) AS success_count,
+                   SUM(CASE WHEN response = 'yes' THEN 1 ELSE 0 END) AS success_count,
                    COUNT(*) AS total_count,
-                   (SUM(CASE WHEN y = 'yes' THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS success_rate
+                   (SUM(CASE WHEN response = 'yes' THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS success_rate
             FROM \`bank_cleaned\`
             GROUP BY contact_month
             ORDER BY FIELD(month, 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec') ASC;
