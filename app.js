@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 require('dotenv').config()
 // กำหนดพอร์ตที่ server จะทำงาน
-const PORT = 3000;
+const PORT = 5000;
 
 // เปิดใช้งาน CORS
 // Create an instance of Express
@@ -22,6 +22,8 @@ const login = mysql.createConnection({
     user: '4EaMJX1ZMmWazbw.root',
     password: 'Mv3jgj3SvvlneD1s',
     database: 'test',
+
+    
     port: 4000,
     ssl: {
         rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
@@ -42,7 +44,7 @@ const db = mysql.createConnection({
     user: '4EaMJX1ZMmWazbw.root',
     password: 'Mv3jgj3SvvlneD1s',
     database: 'mydb',
-    port: 4000,
+    port: 3000,
     ssl: {
         rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
     }
