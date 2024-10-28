@@ -15,23 +15,45 @@ app.use(cors());
 app.use(express.json());
 
 
-// เชื่อมต่อกับฐานข้อมูล MySQL users_db
-const login = mysql.createConnection(process.env.DATABASE_URL_USER);
 
-login.connect((err) => {
-    if (err) throw err;
-    console.log('Connected to MySQL users_db');
+// เชื่อมต่อกับฐานข้อมูล MySQL users_db
+const login = mysql.createConnection({
+    host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
+    user: '4EaMJX1ZMmWazbw.root',
+    password: 'Mv3jgj3SvvlneD1s',
+    database: 'test',
+    port: 4000,
+    ssl: {
+        rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
+    }
+});
+
+login.connect(err => {
+    if (err) {
+        console.error('Error connecting to TiDB Cloud:', err);
+    } else {
+        console.log('Connected to TiDB Cloud database');
+    }
 });
 
 // เชื่อมต่อกับฐานข้อมูล MySQL bank_data
-const db = mysql.createConnection(process.env.DATABASE_URL_BANK);
+const db = mysql.createConnection({
+    host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
+    user: '4EaMJX1ZMmWazbw.root',
+    password: 'Mv3jgj3SvvlneD1s',
+    database: 'mydb',
+    port: 4000,
+    ssl: {
+        rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
+    }
+});
 
 db.connect(err => {
     if (err) {
-        console.error('Error connecting to MySQL:', err);
-        return;
+        console.error('Error connecting to TiDB Cloud:', err);
+    } else {
+        console.log('Connected to TiDB Cloud database');
     }
-    console.log('Connected to MySQL bank_data');
 });
 
 
