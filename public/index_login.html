@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Logout/Register</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style_login.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h2>Welcome Back!</h2>
+                    <button id="login">Login</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h2>Hello, Friend!</h2>
+                    <button id="register">Register</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ฟอร์ม Login -->
+        <div class="form-container sign-in">
+            <form id="login-form">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email" required><br>
+                <input type="password" id="login-password" placeholder="Password" required><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- ฟอร์ม Register -->
+        <div class="form-container sign-up">
+            <form id="register-form">
+                <h2>Register</h2>
+                <input type="text" id="register-name" placeholder="Name" required><br>
+                <input type="email" id="register-email" placeholder="Email" required><br>
+                <input type="password" id="register-password" placeholder="Password" required><br>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script_login.js"></script>
+</body>
+
+</html>

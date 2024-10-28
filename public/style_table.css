@@ -1,0 +1,370 @@
+/* ปรับฟอนต์และขนาดของตัวหนังสือให้เหมาะสม */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #edddff;
+    /* เพิ่มพื้นหลังสีอ่อน */
+}
+
+/* ============================================================================================================ */
+/* Data Count Dashboard styling */
+/* ปรับแต่งกล่องข้อมูล */
+.data-count-box {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.toolbar_2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #edddff;
+    /* สีพื้นหลังของ toolbar */
+    padding: 10px 20px;
+    color: white;
+    height: 45px;
+}
+
+/* Toolbar styling */
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* ใช้ความกว้างเต็มจอ */
+    background-color: #3B1E54;
+    padding: 10px 20px;
+    color: white;
+    height: 45px;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.text_table {
+    font-size: 26px;
+    /* ปรับขนาดใหญ่ขึ้นเล็กน้อย */
+    font-weight: 600;
+    /* ใช้ font-weight ที่หนาพอดี */
+    color: #ffffff;
+    /* สีตัวอักษรเป็นสีขาว */
+    text-align: center;
+    margin: 0 auto;
+    flex: 1;
+    /* ให้ตัวอักษรขยายเพื่อครอบคลุมพื้นที่ที่เหลือ */
+    padding-left: 50px;
+    /* ขยับไปทางขวานิดหน่อย */
+    letter-spacing: 1px;
+    /* เพิ่มระยะห่างระหว่างตัวอักษรเล็กน้อย */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* ใช้ฟอนต์ที่ดูทันสมัยและอ่านง่าย */
+}
+
+
+/* =======================ไม่ใช้===================================================================================== */
+/* Data Count Dashboard styling */
+.dashboard-section-Count {
+    position: absolute;
+    top: 65px;
+    /* อยู่ด้านล่างของ toolbar */
+    right: 45px;
+    /* อยู่ด้านขวา */
+    background-color: #e6f2ff;
+    /* สีพื้นหลังของ dashboard */
+    border: 1px solid #9B7EBD;
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    /* ปรับให้เนื้อหากลาง */
+}
+
+/* Heading in dashboard */
+.dashboard-section-Count h2 {
+    background-color: #3B1E54;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Styling the filters */
+.dashboard-section-Count select {
+    width: 100%;
+    /* ให้ Select dropdown ใช้ความกว้างทั้งหมด */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the button */
+.get-count {
+    background-color: #3B1E54;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    /* ขนาดปุ่มใหญ่ขึ้น */
+    margin-top: 10px;
+    width: 100%;
+    /* ให้ปุ่มใช้ความกว้างเต็ม */
+    display: inline-block;
+}
+
+.get-count:hover {
+    background-color: #45a049;
+}
+
+
+/* Styling the count box */
+.data-count-box {
+    margin-top: 20px;
+    font-size: 32px;
+    /* ขนาดตัวเลขใหญ่ขึ้น */
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Optional: Additional padding around labels */
+.dashboard-section-Count label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+.button-section-Count {
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 4px;
+    border-width: 0;
+    right: 45px;
+    box-shadow:
+        rgba(45, 35, 66, 0.2) 0 2px 4px,
+        rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.button-section-Count:focus {
+    box-shadow:
+        #d6d6e7 0 0 0 1.5px inset,
+        rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+}
+
+.button-section-Count:hover {
+    box-shadow:
+        rgba(45, 35, 66, 0.3) 0 4px 8px,
+        rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button-section-Count:active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+/* ============================================================================================================ */
+
+/* From Uiverse.io by Bodyhc */
+.search {
+    display: inline-flex;
+    align-items: center;
+    /* Aligns the input and button vertically */
+    gap: 10px;
+    /* Adds space between the input and button */
+    position: relative;
+    left: 100px;
+}
+
+.search label {
+    font-size: 16px;
+    /* Adjust font size to match input and button */
+    font-family: Arial, sans-serif;
+    /* Choose a clean, modern font */
+    margin-right: 0px;
+    /* Add space between the label and the input */
+    color: #ffffff;
+    /* Set a darker color for better readability */
+    vertical-align: middle;
+    /* Align the label vertically with the input */
+}
+
+
+.search input[type="number"] {
+    width: 80px;
+    padding: 12px 16px;
+    /* Adjust padding for uniform height */
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    height: 48px;
+    /* Set height to match the button */
+    box-sizing: border-box;
+    /* Ensure padding is included in height */
+}
+
+.button-limit {
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 20px;
+    /* Adjust border-radius for a softer look */
+    border-width: 0;
+    box-shadow:
+        rgba(45, 35, 66, 0.2) 0 2px 4px,
+        rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    height: 48px;
+    /* Match the height of the input */
+    font-size: 16px;
+    /* Ensure font size consistency */
+    white-space: nowrap;
+}
+
+.button-limit:focus {
+    box-shadow:
+        #d6d6e7 0 0 0 1.5px inset,
+        rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+}
+
+.button-limit:hover {
+    box-shadow:
+        rgba(45, 35, 66, 0.3) 0 4px 8px,
+        rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button-limit:active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+
+/* ============================================================================================================ */
+/* จัดตำแหน่งตารางให้ชิดขวา */
+table {
+    width: 94%;
+    /* Make the table take up full width */
+    border-collapse: collapse;
+    /* Merge table borders for a clean look */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Light shadow for a subtle 3D effect */
+    margin-left: 20px;
+    /* ขยับไปทางขวานิดหน่อย */
+    float: right;
+    /* ทำให้ตารางอยู่ทางด้านขวา */
+    table-layout: fixed;
+}
+
+/* เพิ่มการจัดตำแหน่งให้กับ header และ cell */
+th,
+td {
+    padding: 12px 16px;
+    /* Consistent padding */
+    border: 1px solid #ccc;
+    /* Light gray border for table cells */
+    text-align: right;
+    /* Align text to the right */
+    font-size: 16px;
+    /* Match the font size of input and button */
+    font-family: Arial, sans-serif;
+    /* Clean and modern font */
+    color: #333;
+    /* Dark text for readability */
+}
+
+/* ทำให้ header ของตารางเป็นตัวหนาและมีพื้นหลังที่แตกต่าง */
+th {
+    background-color: #4CAF50;
+    /* Light background for table headers */
+    cursor: pointer;
+    /* Pointer to indicate clickable headers */
+    transition: background-color 0.3s ease;
+    /* Smooth hover transition */
+}
+
+/* เมื่อ hover ที่ header */
+th:hover {
+    background-color: #e0e0e0;
+    /* Slightly darker background on hover */
+}
+
+/* สีพื้นหลังสำหรับแถวในตาราง */
+tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+    /* Light gray background for odd rows */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff;
+    /* White background for even rows */
+}
+
+/* สีพื้นหลังเมื่อ hover ที่แถว */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    /* Slight highlight on hover */
+}
+
+/* ขนาดตัวอักษรสำหรับ cell */
+tbody td {
+    font-size: 14px;
+    /* Slightly smaller font for table content */
+    color: #555;
+    /* Softer gray for table data */
+}

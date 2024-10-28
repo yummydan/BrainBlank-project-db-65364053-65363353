@@ -1,0 +1,410 @@
+/* ปรับแต่งกล่องข้อมูล */
+.data-count-box {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.toolbar_2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  /* สีพื้นหลังของ toolbar */
+  padding: 10px 20px;
+  color: white;
+  height: 40px;
+}
+
+/* Toolbar styling */
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* ใช้ความกว้างเต็มจอ */
+  background-color: #3B1E54;
+  padding: 10px 20px;
+  color: white;
+  height: 45px;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.text_saerch {
+  font-size: 26px;
+  /* ปรับขนาดใหญ่ขึ้นเล็กน้อย */
+  font-weight: 600;
+  /* ใช้ font-weight ที่หนาพอดี */
+  color: #ffffff;
+  /* สีตัวอักษรเป็นสีขาว */
+  text-align: center;
+  margin: 0 auto;
+  flex: 1;
+  /* ให้ตัวอักษรขยายเพื่อครอบคลุมพื้นที่ที่เหลือ */
+  padding-left: 200px;
+  /* ขยับไปทางขวานิดหน่อย */
+  letter-spacing: 1px;
+  /* เพิ่มระยะห่างระหว่างตัวอักษรเล็กน้อย */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* ใช้ฟอนต์ที่ดูทันสมัยและอ่านง่าย */
+}
+
+
+
+.search_input {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: fixed;
+}
+
+.search_input {
+  position: fixed;
+  display: flex;
+  /* ใช้ flex */
+  flex-wrap: wrap;
+  /* ให้สามารถห่อแถว */
+  align-items: center;
+  /* จัดให้อยู่กลาง */
+  background-color: #ffffff;
+  /* สีพื้นหลัง */
+  padding: 10px 20px;
+  /* Padding รอบ ๆ */
+  height: auto;
+  /* ให้ความสูงเปลี่ยนแปลงตามเนื้อหา */
+  width: 97.5%;
+  /* ใช้ความกว้างเต็มหน้าจอ */
+  left: 0;
+  /* จัดให้อยู่ด้านซ้าย */
+  right: 0;
+  /* จัดให้อยู่ด้านขวา */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* เงา */
+  z-index: 1000;
+  /* ให้แน่ใจว่ามีเลเยอร์สูงกว่า */
+  justify-content: center;
+}
+
+.search_input label {
+  margin-right: 5px;
+  /* ระยะห่างระหว่าง label กับ input */
+  font-size: 16px;
+  /* ขนาดฟอนต์ */
+}
+
+.search_input input {
+  width: 150px;
+  /* ความกว้างเริ่มต้น */
+  padding: 10px;
+  /* Padding */
+  border: 1px solid #ccc;
+  /* ขอบ */
+  border-radius: 20px;
+  /* ขอบมน */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  /* เงา */
+  margin-right: 10px;
+  /* ระยะห่างระหว่าง input */
+}
+
+.search_input button {
+  padding: 10px 20px;
+  /* ขนาดปุ่ม */
+  border: none;
+  /* ไม่มีขอบ */
+  background-color: #4CAF50;
+  /* สีพื้นหลังของปุ่ม */
+  color: white;
+  /* สีตัวอักษร */
+  border-radius: 20px;
+  /* ขอบมน */
+  cursor: pointer;
+  /* ลูกศรเมื่อเลื่อนเมาส์ */
+}
+
+.search_input button:hover {
+  background-color: #45a049;
+  /* สีพื้นหลังเมื่อเลื่อนเมาส์ */
+}
+
+/* Media Queries สำหรับจัดเรียงเป็นคอลัมน์ */
+@media (max-width: 768px) {
+  .search_input {
+    flex-direction: column;
+    /* เปลี่ยนเป็นคอลัมน์ */
+    align-items: flex-start;
+    /* จัดแนวให้ชิดซ้าย */
+  }
+
+  .search_input input,
+  .search_input label {
+    margin-right: 0;
+    /* ไม่มีระยะห่างระหว่าง label กับ input */
+    margin-bottom: 10px;
+    /* เพิ่มระยะห่างระหว่าง input */
+  }
+}
+
+/* =======================ไม่ใช้===================================================================================== */
+/* Data Count Dashboard styling */
+
+/* Data Count Dashboard styling */
+.dashboard-section-Count {
+  position: absolute;
+  top: 65px;
+  /* อยู่ด้านล่างของ toolbar */
+  right: 45px;
+  /* อยู่ด้านขวา */
+  background-color: #e6f2ff;
+  /* สีพื้นหลังของ dashboard */
+  border: 1px solid #9B7EBD;
+  border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  /* ปรับให้เนื้อหากลาง */
+}
+
+/* Heading in dashboard */
+.dashboard-section-Count h2 {
+  background-color: #3B1E54;
+  color: white;
+  padding: 10px;
+  border-radius: 8px 8px 0 0;
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+}
+
+/* Styling the filters */
+.dashboard-section-Count select {
+  width: 100%;
+  /* ให้ Select dropdown ใช้ความกว้างทั้งหมด */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the button */
+.get-count {
+  background-color: #3B1E54;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  /* ขนาดปุ่มใหญ่ขึ้น */
+  margin-top: 10px;
+  width: 100%;
+  /* ให้ปุ่มใช้ความกว้างเต็ม */
+  display: inline-block;
+}
+
+.get-count:hover {
+  background-color: #45a049;
+}
+
+/* Styling the count box */
+.data-count-box {
+  margin-top: 20px;
+  font-size: 32px;
+  /* ขนาดตัวเลขใหญ่ขึ้น */
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Optional: Additional padding around labels */
+.dashboard-section-Count label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+
+.button-section-Count {
+  align-items: center;
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 4px;
+  border-width: 0;
+  right: 45px;
+  box-shadow:
+    rgba(45, 35, 66, 0.2) 0 2px 4px,
+    rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+    #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395a;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button-section-Count:focus {
+  box-shadow:
+    #d6d6e7 0 0 0 1.5px inset,
+    rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #d6d6e7 0 -3px 0 inset;
+}
+
+.button-section-Count:hover {
+  box-shadow:
+    rgba(45, 35, 66, 0.3) 0 4px 8px,
+    rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+    #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-section-Count:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+/* From Uiverse.io by Bodyhc */
+.search_input {
+  display: inline-flex;
+  align-items: center;
+  /* Aligns the input and button vertically */
+  gap: 10px;
+  /* Adds space between the input and button */
+  position: relative;
+  z-index: 99;
+}
+
+.search_input label {
+  font-size: 18px;
+  /* Adjust font size to match input and button */
+  font-family: Arial, sans-serif;
+  /* Choose a clean, modern font */
+  margin-right: 10px;
+  /* Add space between the label and the input */
+  vertical-align: middle;
+  /* Align the label vertically with the input */
+}
+
+.search_input input {
+  width: 200px;
+  padding: 12px 16px;
+  /* Adjust padding for uniform height */
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  height: 48px;
+  /* Set height to match the button */
+  box-sizing: border-box;
+  /* Ensure padding is included in height */
+}
+
+/* Optional: Add a hover effect for inputs */
+.search_input input:hover {
+  border: 1px solid #4CAF50;
+  /* Change border color on hover */
+}
+
+/* ============================================================================================================ */
+/* ปรับฟอนต์และขนาดของตัวหนังสือให้เหมาะสม */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background-color: #edddff;
+  /* เพิ่มพื้นหลังสีอ่อน */
+}
+
+table {
+  width: 94%;
+  /* Make the table take up full width */
+  border-collapse: collapse;
+  /* Merge table borders for a clean look */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Light shadow for a subtle 3D effect */
+  margin-left: 20px;
+  /* ขยับไปทางขวานิดหน่อย */
+  float: right;
+  /* ทำให้ตารางอยู่ทางด้านขวา */
+  table-layout: fixed;
+}
+
+.result_text {
+  font-size: 26px;
+  /* ปรับขนาดใหญ่ขึ้นเล็กน้อย */
+  font-weight: 600;
+  /* ใช้ font-weight ที่หนาพอดี */
+  color: #000000;
+  /* สีตัวอักษรเป็นสีขาว */
+  text-align: center;
+  margin: 0 auto;
+  flex: 1;
+  /* ให้ตัวอักษรขยายเพื่อครอบคลุมพื้นที่ที่เหลือ */
+  padding-left: 0px;
+  /* ขยับไปทางขวานิดหน่อย */
+  letter-spacing: 1px;
+  /* เพิ่มระยะห่างระหว่างตัวอักษรเล็กน้อย */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* ใช้ฟอนต์ที่ดูทันสมัยและอ่านง่าย */
+}
+
+th,
+td {
+  padding: 12px 16px;
+  /* Consistent padding */
+  border: 1px solid #ccc;
+  /* Light gray border for table cells */
+  text-align: right;
+  /* Align text to the right */
+  font-size: 16px;
+  /* Match the font size of input and button */
+  font-family: Arial, sans-serif;
+  /* Clean and modern font */
+  color: #333;
+  /* Dark text for readability */
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
+  /* Smooth hover transition */
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}

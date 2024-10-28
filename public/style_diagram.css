@@ -1,0 +1,292 @@
+/* จัด Layout แบบ Flexbox */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* ปรับขนาดของแต่ละกราฟ */
+.dashboard-section-Demographic,
+.dashboard-section-default_status,
+.dashboard-section-Financial,
+.dashboard-section-Campaign,
+.dashboard-section-Time-based,
+.dashboard-section-Correlation {
+    width: 31%;
+    /* ลดขนาดเล็กน้อยเพื่อให้มีพื้นที่ระหว่างกราฟ */
+    margin-bottom: 5px;
+    /* ลดระยะห่างด้านล่างของกราฟ */
+    padding: 10px;
+    /* ลด padding */
+    box-shadow: 0px 2px 4px rgb(142, 34, 230);
+    /* ลดเงา */
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    /* ป้องกันขอบกราฟล้นออกไปนอก box */
+}
+
+/* ปรับขนาดกราฟภายในให้ย่อขนาดตาม container */
+.chart-container-Demographic,
+.chart-container-default_status,
+.chart-container-balance,
+.chart-container-campaign_analysis,
+.chart-container-Time-based,
+.chart-container-Correlation {
+    width: 100%;
+    /* ขยายกราฟให้เต็มความกว้างของ container */
+    height: 230px;
+    /* ปรับขนาดกราฟให้ไม่สูงเกินไป */
+    margin: 5px auto;
+    /* ลด margin ของกราฟ */
+    display: flex;
+    /* ใช้ flexbox ในการจัดวาง */
+    justify-content: center;
+    /* จัดกราฟให้อยู่กึ่งกลางแนวนอน */
+    align-items: center;
+    /* จัดกราฟให้อยู่กึ่งกลางแนวตั้ง */
+}
+
+/* ใช้ Media Queries เพื่อลดขนาดกราฟเมื่อหน้าจอแคบลง */
+@media only screen and (max-width: 1200px) {
+
+    .dashboard-section-Demographic,
+    .dashboard-section-default_status,
+    .dashboard-section-Financial,
+    .dashboard-section-Campaign,
+    .dashboard-section-Time-based,
+    .dashboard-section-Correlation {
+        width: 45%;
+        /* แสดง 2 กราฟต่อแถวเมื่อหน้าจอเล็กลง */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .dashboard-section-Demographic,
+    .dashboard-section-default_status,
+    .dashboard-section-Financial,
+    .dashboard-section-Campaign,
+    .dashboard-section-Time-based,
+    .dashboard-section-Correlation {
+        width: 90%;
+        /* แสดงกราฟละแถวเดียว */
+    }
+}
+
+h1 {
+    margin: center;
+}
+
+/* ปรับการจัดวางหัวข้อ */
+h2 {
+    font-size: 18px;
+    text-align: center;
+    /* จัดข้อความให้อยู่กลาง */
+    margin-bottom: 5px;
+    /* ลดระยะห่างด้านล่างของหัวข้อ */
+}
+
+/* ปรับฟอนต์และขนาดของตัวหนังสือให้เหมาะสม */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    background-color: #edddff;
+    /* เพิ่มพื้นหลังสีอ่อน */
+}
+
+/* ปรับแต่งกล่องข้อมูล */
+.data-count-box {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.toolbar_2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #edddff;
+    /* สีพื้นหลังของ toolbar */
+    padding: 10px 20px;
+    color: white;
+    height: 45px;
+}
+
+/* Toolbar styling */
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* ใช้ความกว้างเต็มจอ */
+    background-color: #3B1E54;
+    padding: 10px 20px;
+    color: white;
+    height: 45px;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.text_Dashboard {
+    font-size: 26px;
+    /* ปรับขนาดใหญ่ขึ้นเล็กน้อย */
+    font-weight: 600;
+    /* ใช้ font-weight ที่หนาพอดี */
+    color: #ffffff;
+    /* สีตัวอักษรเป็นสีขาว */
+    text-align: center;
+    margin: 0 auto;
+    flex: 1;
+    /* ให้ตัวอักษรขยายเพื่อครอบคลุมพื้นที่ที่เหลือ */
+    padding-left: 200px;
+    /* ขยับไปทางขวานิดหน่อย */
+    letter-spacing: 1px;
+    /* เพิ่มระยะห่างระหว่างตัวอักษรเล็กน้อย */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* ใช้ฟอนต์ที่ดูทันสมัยและอ่านง่าย */
+}
+
+
+/* Data Count Dashboard styling */
+.dashboard-section-Count {
+    position: absolute;
+    top: 65px;
+    /* อยู่ด้านล่างของ toolbar */
+    right: 45px;
+    /* อยู่ด้านขวา */
+    background-color: #e6f2ff;
+    /* สีพื้นหลังของ dashboard */
+    border: 1px solid #9B7EBD;
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    /* ปรับให้เนื้อหากลาง */
+}
+
+/* Heading in dashboard */
+.dashboard-section-Count h2 {
+    background-color: #3B1E54;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Styling the filters */
+.dashboard-section-Count select {
+    width: 100%;
+    /* ให้ Select dropdown ใช้ความกว้างทั้งหมด */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the button */
+.get-count {
+    background-color: #3B1E54;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    /* ขนาดปุ่มใหญ่ขึ้น */
+    margin-top: 10px;
+    width: 100%;
+    /* ให้ปุ่มใช้ความกว้างเต็ม */
+    display: inline-block;
+}
+
+.get-count:hover {
+    background-color: #45a049;
+}
+
+/* Styling the count box */
+.data-count-box {
+    margin-top: 20px;
+    font-size: 32px;
+    /* ขนาดตัวเลขใหญ่ขึ้น */
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Optional: Additional padding around labels */
+.dashboard-section-Count label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+
+.button-section-Count {
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 4px;
+    border-width: 0;
+    right: 45px;
+    box-shadow:
+        rgba(45, 35, 66, 0.2) 0 2px 4px,
+        rgba(45, 35, 66, 0.15) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition:
+        box-shadow 0.15s,
+        transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.button-section-Count:focus {
+    box-shadow:
+        #d6d6e7 0 0 0 1.5px inset,
+        rgba(45, 35, 66, 0.4) 0 2px 4px,
+        rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+}
+
+.button-section-Count:hover {
+    box-shadow:
+        rgba(45, 35, 66, 0.3) 0 4px 8px,
+        rgba(45, 35, 66, 0.2) 0 7px 13px -3px,
+        #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.button-section-Count:active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(2px);
+}

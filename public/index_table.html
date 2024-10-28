@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Data Table</title>
+    <link rel="stylesheet" href="style_table.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="toolbar">
+
+        <div class="search">
+            <label for="limit">Rows to Display:</label>
+            <input type="number" id="limit" value="15">
+            <button class="button-limit" type="submit" onclick="fetchData()">Load Data</button>
+        </div>
+
+        <div class="text_table">Table Bank Data</div>
+        <button class="button-section-Count" role="section-Count" onclick="toggleDashboard()">Data Count
+            Dashboard</button>
+
+        <!-- Data Count Dashboard -->
+        <div class="dashboard-section-Count" id="dashboardSection" style="display: none;">
+            <h2>Data Count Dashboard (แผงนับข้อมูล)</h2>
+            <div>
+                <label for="filterColumn">Select Column:</label>
+                <select id="filterColumn">
+                    <option value="">-- Select Column --</option>
+                    <option value="age">Age</option>
+                    <option value="job">Job</option>
+                    <option value="marital">Marital Status</option>
+                    <option value="education">Education</option>
+                    <option value="default">Default Status</option>
+                    <option value="housing">Housing</option>
+                    <option value="loan">Loan Status</option>
+                    <option value="contact">Contact Method</option>
+                    <option value="month">Month</option>
+                    <option value="day">Day</option>
+                    <option value="poutcome">Poutcome</option>
+                </select>
+            </div>
+            <div>
+                <label for="filterValue">Select Value:</label>
+                <select id="filterValue">
+                    <option value="">-- Select Value --</option>
+                </select>
+            </div>
+            <button class="get-count" id="getCountButton">Get Count</button>
+
+            <div class="data-count-box">
+                จำนวนข้อมูล: <span id="dataCount">0</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name"></i>BrainBlank</div>
+            <!-- ถ้ารู้สึกว่าเวลามันหายไปมันกระตุกต้องลองแก้ตรงไอคอนสมอง ไม่ก็ลบเลย -->
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="index_diagram.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="index_search.html">
+                    <i class='bx bx-search'></i>
+                    <span class="links_name">Search</span>
+                </a>
+                <span class="tooltip">Search</span>
+            </li>
+
+            <li>
+                <a href="index_table.html">
+                    <i class='bx bx-table'></i>
+                    <span class="links_name">Table</span>
+                </a>
+                <span class="tooltip">Table</span>
+            </li>
+            <li>
+                <a href="index_profile.html">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Profile</span>
+                </a>
+                <span class="tooltip">Profile</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <i class='bx bx-brain'></i>
+                    <!-- <i class='bx bxs-dog'></i> -->
+                    <!-- <img src="./images/profile.png" alt="profileImg"> -->
+                    <div class="name_job">
+                        <div id="logout-button" class="job"></div>
+                    </div>
+                </div>
+                <a href="index_login.html">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="toolbar_2"></div>
+
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th onclick="sortTable('age')">Age</th>
+                <th onclick="sortTable('job')">Job</th>
+                <th onclick="sortTable('marital')">Marital</th>
+                <th onclick="sortTable('education')">Education</th>
+                <th onclick="sortTable('balance')">Balance</th>
+                <th onclick="sortTable('day')">Day</th>
+                <th onclick="sortTable('month')">Month</th>
+                <th onclick="sortTable('duration')">Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be dynamically inserted here -->
+        </tbody>
+    </table>
+    <script src="script_table.js"></script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
