@@ -44,7 +44,7 @@ const db = mysql.createConnection({
     user: '4EaMJX1ZMmWazbw.root',
     password: 'Mv3jgj3SvvlneD1s',
     database: 'mydb',
-    port: 3000,
+    port: 4000,
     ssl: {
         rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
     }
