@@ -18,23 +18,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // เชื่อมต่อกับฐานข้อมูล MySQL users_db
 const login = mysql.createConnection({
-    host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
-    user: '4EaMJX1ZMmWazbw.root',
-    password: 'Mv3jgj3SvvlneD1s',
-    database: 'test',
+        host: 'gateway01.ap-southeast-1.prod.aws.tidbcloud.com',
+        user: '4EaMJX1ZMmWazbw.root',
+        password: 'Mv3jgj3SvvlneD1s',
+        database: 'test',
 
-    
-    port: 4000,
-    ssl: {
-        rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
-    }
-});
+
+        port: 4000,
+        ssl: {
+            rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
+        }
+    // host: 'localhost',
+    // user: 'root',
+    // password: '',
+    // database: 'users_db'
+}
+);
 
 login.connect(err => {
     if (err) {
         console.error('Error connecting to TiDB Cloud:', err);
     } else {
-        console.log('Connected to TiDB Cloud database');
+        console.log('Connected to TiDB Cloud database user');
     }
 });
 
@@ -48,13 +53,17 @@ const db = mysql.createConnection({
     ssl: {
         rejectUnauthorized: true // ตรวจสอบความถูกต้องของใบรับรอง SSL
     }
+    // host: '127.0.0.1',
+    // user: 'root',
+    // password: '',
+    // database: 'bank_data'
 });
 
 db.connect(err => {
     if (err) {
         console.error('Error connecting to TiDB Cloud:', err);
     } else {
-        console.log('Connected to TiDB Cloud database');
+        console.log('Connected to TiDB Cloud database bank_data');
     }
 });
 
@@ -208,7 +217,7 @@ app.get('/contacts-analysis', (req, res) => {
             GROUP BY month, day
             ORDER BY FIELD(month, 'jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'), day ASC;
         `;
-    }else if (chartType === 'contacts_per_month') {
+    } else if (chartType === 'contacts_per_month') {
         query = `
             SELECT month AS contact_month, COUNT(*) AS contact_count
             FROM \`bank_cleaned\`
@@ -368,6 +377,39 @@ app.get('/search', (req, res) => {
         res.json(results);
     });
 });
+
+
+// เส้นทางสำหรับการรับข้อมูลจากฟอร์ม HTML และเพิ่มลงในฐานข้อมูล
+app.post('/submit', (req, res) => {
+    const { age, job, marital, education, default: def, balance, housing, loan, day, month, duration } = req.body;
+
+    const sqlInsert = `INSERT INTO bank_cleaned 
+                       (age, job, marital, education, \`default\`, balance, housing, loan, day, month, duration) 
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const values = [age, job, marital, education, def, balance, housing, loan, day, month, duration];
+
+    db.query(sqlInsert, values, (err, result) => {
+        if (err) throw err;
+        console.log('Data inserted:', result);
+
+        // เปลี่ยนไปที่หน้า HTML ที่กำหนดหลังจากเพิ่มข้อมูลเรียบร้อย
+        res.redirect('/success');
+    });
+});
+
+// เพิ่มเส้นทางใหม่สำหรับหน้า success
+app.get('/success', (req, res) => {
+    res.sendFile(__dirname + '/public/index_search.html'); // เส้นทางไปยังไฟล์ success.html ในโฟลเดอร์ public
+});
+
+
+app.get('/check-data', (req, res) => {
+    db.query('SELECT * FROM customer_data', (err, rows) => {
+        if (err) throw err;
+        res.json(rows);  // ส่งข้อมูลทั้งหมดในรูป JSON กลับไปที่เบราว์เซอร์
+    });
+});
+
 
 
 
