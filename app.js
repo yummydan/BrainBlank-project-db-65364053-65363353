@@ -12,7 +12,7 @@ const PORT = 5000;
 // Create an instance of Express
 app.use(cors());
 app.use(express.json());
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
