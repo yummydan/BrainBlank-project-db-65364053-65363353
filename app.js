@@ -404,7 +404,7 @@ app.get('/success', (req, res) => {
 
 
 app.get('/check-data', (req, res) => {
-    db.query('SELECT * FROM customer_data', (err, rows) => {
+    db.query('SELECT * FROM bank_cleaned', (err, rows) => {
         if (err) throw err;
         res.json(rows);  // ส่งข้อมูลทั้งหมดในรูป JSON กลับไปที่เบราว์เซอร์
     });
