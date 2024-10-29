@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBlank</title>
+    <link rel="stylesheet" href="style_admin_log.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style_admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <<div class="form-container">
+        <h2>Add New Information</h2>
+        <form id="customerForm" action="/submit" method="POST"> <!-- เพิ่ม ID ให้กับฟอร์ม -->
+            <div class="two-columns">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required> <!-- เพิ่ม required -->
+                </div>
+                <div class="form-group">
+                    <label for="job">Job:</label>
+                    <select id="job" name="job" required> <!-- เพิ่ม required -->
+                        <option value="">-- Select job --</option>
+                        <option value="admin">Admin</option>
+                        <option value="blue-collar">Blue-collar</option>
+                        <option value="entrepreneur">Entrepreneur</option>
+                        <option value="housemaid">Housemaid</option>
+                        <option value="management">Management</option>
+                        <option value="retired">Retired</option>
+                        <option value="self-employed">Self-employed</option>
+                        <option value="services">Services</option>
+                        <option value="student">Student</option>
+                        <option value="technician">Technician</option>
+                        <option value="unemployed">Unemployed</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="marital">Marital Status:</label>
+                    <select id="marital" name="marital" required> <!-- เพิ่ม required -->
+                        <option value="">-- Select marital --</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="education">Education:</label>
+                    <select id="education" name="education" required> <!-- เพิ่ม required -->
+                        <option value="">-- Select Education --</option>
+                        <option value="primary">Primary</option>
+                        <option value="secondary">Secondary</option>
+                        <option value="tertiary">Tertiary</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Default:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="default-yes" name="default" value="yes" required>
+                        <label for="default-yes">Yes</label>
+                        <input type="radio" id="default-no" name="default" value="no" required>
+                        <label for="default-no">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="balance">Balance:</label>
+                    <input type="number" id="balance" name="balance" required> <!-- เพิ่ม required -->
+                </div>
+                <div class="form-group">
+                    <label>Housing Loan:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="housing-yes" name="housing" value="yes" required>
+                        <label for="housing-yes">Yes</label>
+                        <input type="radio" id="housing-no" name="housing" value="no" required>
+                        <label for="housing-no">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Personal Loan:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="loan-yes" name="loan" value="yes" required>
+                        <label for="loan-yes">Yes</label>
+                        <input type="radio" id="loan-no" name="loan" value="no" required>
+                        <label for="loan-no">No</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="day">Day:</label>
+                    <input type="number" id="day" name="day" required> <!-- เพิ่ม required -->
+                </div>
+                <div class="form-group">
+                    <label for="month">Month:</label>
+                    <select id="month" name="month" required> <!-- เพิ่ม required -->
+                        <option value="">-- Select Month --</option>
+                        <option value="jan">January</option>
+                        <option value="feb">February</option>
+                        <option value="mar">March</option>
+                        <option value="apr">April</option>
+                        <option value="may">May</option>
+                        <option value="jun">June</option>
+                        <option value="jul">July</option>
+                        <option value="aug">August</option>
+                        <option value="sep">September</option>
+                        <option value="oct">October</option>
+                        <option value="nov">November</option>
+                        <option value="dec">December</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (seconds):</label>
+                    <input type="number" id="duration" name="duration" required> <!-- เพิ่ม required -->
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        </div>
+        <div class="sidebar">
+            <div class="logo-details">
+                <div class="logo_name"></i>BrainBlank</div>
+                <!-- ถ้ารู้สึกว่าเวลามันหายไปมันกระตุกต้องลองแก้ตรงไอคอนสมอง ไม่ก็ลบเลย -->
+                <i class='bx bx-menu' id="btn"></i>
+            </div>
+            <ul class="nav-list">
+                <li class="profile">
+                    <div class="profile-details">
+                        <i class='bx bx-brain'></i>
+                        <!-- <i class='bx bxs-dog'></i> -->
+                        <!-- <img src="./images/profile.png" alt="profileImg"> -->
+                        <div class="name_job">
+                            <div id="logout-button" class="job"></div>
+                        </div>
+                    </div>
+                    <a href="index_login.html">
+                        <i class='bx bx-log-out' id="log_out"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="toolbar_2"></div>
+
+        <script src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="script.js" defer></script>
+        <div id="background-wrap">
+            <div class="bubble x1"></div>
+            <div class="bubble x2"></div>
+            <div class="bubble x3"></div>
+            <div class="bubble x4"></div>
+            <div class="bubble x5"></div>
+            <div class="bubble x6"></div>
+            <div class="bubble x7"></div>
+            <div class="bubble x8"></div>
+            <div class="bubble x9"></div>
+            <div class="bubble x10"></div>
+        </div>
+        <script src="script.js" defer></script>
+        <script src="script_admin_log.js" defer></script>
+
+</body>
+
+
+</html>

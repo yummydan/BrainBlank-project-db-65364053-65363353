@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBlank</title>
+    <link rel="stylesheet" href="style_admin_log.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h2>Hello, Admin!</h2>
+                    <p>Register with your personal details to use all of site features of Admin</p>
+                </div>
+            </div>
+        </div>
+        <!-- ฟอร์ม Login -->
+        <div class="form-container sign-in">
+            <form id="login-form">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email" required><br>
+                <input type="password" id="login-password" placeholder="Password" required><br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name"></i>BrainBlank</div>
+            <!-- ถ้ารู้สึกว่าเวลามันหายไปมันกระตุกต้องลองแก้ตรงไอคอนสมอง ไม่ก็ลบเลย -->
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="index_diagram.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="index_search.html">
+                    <i class='bx bx-search'></i>
+                    <span class="links_name">Search</span>
+                </a>
+                <span class="tooltip">Search</span>
+            </li>
+
+            <li>
+                <a href="index_table.html">
+                    <i class='bx bx-table'></i>
+                    <span class="links_name">Table</span>
+                </a>
+                <span class="tooltip">Table</span>
+            </li>
+            <li>
+                <a href="index_profile.html">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Profile</span>
+                </a>
+                <span class="tooltip">Profile</span>
+            </li>
+            <li>
+                <a href="index_admin_log.html">
+                    <i class='bx bxs-user-account'></i>
+                    <span class="links_name">Admin</span>
+                </a>
+                <span class="tooltip">Admin</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <i class='bx bx-brain'></i>
+                    <!-- <i class='bx bxs-dog'></i> -->
+                    <!-- <img src="./images/profile.png" alt="profileImg"> -->
+                    <div class="name_job">
+                        <div id="logout-button" class="job"></div>
+                    </div>
+                </div>
+                <a href="index_login.html">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="toolbar_2"></div>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="script.js" defer></script>
+    <div id="background-wrap">
+        <div class="bubble x1"></div>
+        <div class="bubble x2"></div>
+        <div class="bubble x3"></div>
+        <div class="bubble x4"></div>
+        <div class="bubble x5"></div>
+        <div class="bubble x6"></div>
+        <div class="bubble x7"></div>
+        <div class="bubble x8"></div>
+        <div class="bubble x9"></div>
+        <div class="bubble x10"></div>
+    </div>
+    <script src="script_admin_log.js" defer></script>
+
+</body>
+
+
+</html>
