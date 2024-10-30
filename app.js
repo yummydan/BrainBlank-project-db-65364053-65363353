@@ -6,7 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 require('dotenv').config()
 // กำหนดพอร์ตที่ server จะทำงาน
-const PORT = 5000;
+const PORT = 4000;
 
 // เปิดใช้งาน CORS
 // Create an instance of Express
